@@ -30,7 +30,7 @@ EOF
 # Loop forever
 while true; do
     echo "[INFO] Updating DNS"
-    transip-ddns --config "$INI_PATH"
+    transip_dns --config "$INI_PATH"
     echo "[INFO] Waiting $INTERVAL seconds..."
     sleep "$INTERVAL"
 done

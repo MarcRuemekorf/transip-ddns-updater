@@ -15,6 +15,11 @@ echo "[INFO] Domain: $DOMAIN"
 echo "[INFO] Record: $RECORD"
 echo "[INFO] Interval: $INTERVAL sec"
 
+if [[ -z "$USERNAME" || -z "$TOKEN" || -z "$DOMAIN" || -z "$RECORD" || -z "$INTERVAL" ]]; then
+    echo "[ERROR] One or more required configuration values are missing."
+    exit 1
+fi
+
 INI_PATH="/tmp/config.ini"
 
 cat <<EOF > "$INI_PATH"

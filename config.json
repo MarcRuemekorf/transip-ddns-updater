@@ -1,8 +1,9 @@
 {
   "name": "TransIP DDNS Updater",
   "version": "1.0",
-  "slug": "transip_ddns",
-  "description": "Update een DNS-record bij TransIP via de API",
+  "slug": "transip-ddns-updater",
+  "description": "Update DNS records for dynamic ip-addresses",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "boot": "auto",
   "init": false,

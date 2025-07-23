@@ -1,0 +1,24 @@
+{
+  "name": "TransIP DDNS Updater",
+  "version": "1.0",
+  "slug": "transip_ddns",
+  "description": "Update een DNS-record bij TransIP via de API",
+  "startup": "application",
+  "boot": "auto",
+  "init": false,
+  "host_network": true,
+  "schema": {
+    "login": "str",
+    "token": "str",
+    "domain": "str",
+    "record": "str",
+    "interval": "int"
+  },
+  "options": {
+    "login": "",
+    "token": "",
+    "domain": "",
+    "record": "",
+    "interval": 300
+  }
+}

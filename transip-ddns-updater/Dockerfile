@@ -1,8 +1,6 @@
-FROM alpine:3.22
+FROM python:3.13-slim
 
-ENV LANG C.UTF-8
-
-RUN apk add --no-cache bash curl jq openssl python3 py3-requests
+RUN pip install transip-ddns
 
 COPY run.sh /run.sh
 RUN chmod +x /run.sh

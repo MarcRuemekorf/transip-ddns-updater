@@ -9,13 +9,13 @@ arch:
   - amd64
   - armv7
 options:
-    login: ""
+    username: ""
     token: ""
     domain: ""
     record: ""
     interval: 300
 schema:
-    login: str
+    username: str
     token: str
     domain: str
     record: str

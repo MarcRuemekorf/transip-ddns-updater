@@ -1,26 +1,25 @@
 #!/bin/bash
 
-echo "[INFO] Start TransIP DDNS updater..."
+echo "[INFO] Starting TransIP DDNS updater"
 
 CONFIG_PATH=/data/options.json
 
-LOGIN=$(jq -r '.login' "$CONFIG_PATH")
+USERNAME=$(jq -r '.username' "$CONFIG_PATH")
 TOKEN=$(jq -r '.token' "$CONFIG_PATH")
 DOMAIN=$(jq -r '.domain' "$CONFIG_PATH")
 RECORD=$(jq -r '.record' "$CONFIG_PATH")
 INTERVAL=$(jq -r '.interval' "$CONFIG_PATH")
 
-echo "[INFO] Login: $LOGIN"
-echo "[INFO] Domein: $DOMAIN"
+echo "[INFO] Username: $USERNAME"
+echo "[INFO] Domain: $DOMAIN"
 echo "[INFO] Record: $RECORD"
 echo "[INFO] Interval: $INTERVAL sec"
 
-# Maak tijdelijk INI-bestand
 INI_PATH="/tmp/config.ini"
 
 cat <<EOF > "$INI_PATH"
 [auth]
-login = $LOGIN
+username = $USERNAME
 api_token = $TOKEN
 
 [default]
@@ -30,8 +29,8 @@ EOF
 
 # Loop forever
 while true; do
-    echo "[INFO] Updating DNS..."
+    echo "[INFO] Updating DNS"
     transip-ddns --config "$INI_PATH"
-    echo "[INFO] Wacht $INTERVAL seconden..."
+    echo "[INFO] Waiting $INTERVAL seconds..."
     sleep "$INTERVAL"
 done
